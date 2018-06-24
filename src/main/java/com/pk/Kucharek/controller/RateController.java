@@ -3,6 +3,7 @@ package com.pk.Kucharek.controller;
 import com.pk.Kucharek.model.Rate;
 import com.pk.Kucharek.model.Recipe;
 import com.pk.Kucharek.model.repository.AbstractDAO;
+import com.pk.Kucharek.model.repository.RepositoryFactory;
 import com.pk.Kucharek.model.repository.impl.RateRepository;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class RateController {
     private AbstractDAO rateRepository;
 
     public RateController() {
-        this.rateRepository = new RateRepository();
+        this.rateRepository = RepositoryFactory.getRepository("Rate");
     }
 
     public boolean add(Recipe recipe, Double value) {

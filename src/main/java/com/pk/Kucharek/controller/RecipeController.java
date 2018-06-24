@@ -3,6 +3,7 @@ package com.pk.Kucharek.controller;
 import com.pk.Kucharek.model.Recipe;
 import com.pk.Kucharek.model.RecipeIngredient;
 import com.pk.Kucharek.model.repository.AbstractDAO;
+import com.pk.Kucharek.model.repository.RepositoryFactory;
 import com.pk.Kucharek.model.repository.impl.RecipeRepository;
 import com.pk.Kucharek.service.RecipeBuilder;
 
@@ -14,7 +15,7 @@ public class RecipeController {
     private final AbstractDAO recipeRepository;
 
     public RecipeController() {
-        this.recipeRepository = new RecipeRepository();
+        this.recipeRepository = RepositoryFactory.getRepository("Recipe");
     }
 
     public boolean add(String name,
